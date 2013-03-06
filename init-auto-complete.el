@@ -57,6 +57,7 @@
 /usr/lib/wx/include/gtk2-unicode-release-2.8
 /usr/include/wx-2.8
 /usr/include/gtk-2.0
+/usr/include/gtk-3.0
 /usr/lib/gtk-2.0/include
 /usr/include/atk-1.0
 /usr/include/cairo

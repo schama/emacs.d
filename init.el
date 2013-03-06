@@ -149,6 +149,8 @@
 (require 'init-workgroups)
 (require 'init-move-window-buffer)
 (require 'init-term-mode)
+(require 'init-sr-speedbar)
+(require 'init-golang)
 
 
 ;;----------------------------------------------------------------------------
