@@ -31,6 +31,7 @@
 		(local-set-key (kbd "M-g r") 'go-run)
 		(local-set-key (kbd "M-g f") 'gofmt)
 		(local-set-key (kbd "M-g c") 'go-fix-buffer)
+		(local-set-key (kbd "M-g s") 'go-setenv)
 	
 		;; Menu bar
 		(require 'easymenu)
@@ -38,7 +39,8 @@
 		'("Go tools"
 		["Go run buffer" go-run t]
 		["Go reformat buffer" gofmt t]
-		["Go check buffer" go-fix-buffer t]))
+		["Go check buffer" go-fix-buffer t]
+		["Go set temp gopath" go-setenv t]))
 		(easy-menu-define
 			go-added-menu
 			(current-local-map)
@@ -54,6 +56,17 @@
 	"run current buffer"
 	(interactive)
 	(compile (concat "go run " (buffer-file-name))))
+
+;; helper function
+(defun go-setenv ()
+    "set temp environment varialbe for GOPATH"
+    (interactive)
+    (setq new-path (concat 
+						(read-directory-name "GoPath:" (buffer-file-name)) 
+						":"
+						(getenv "GOPATH")))
+    (setenv "GOPATH" new-path))
+
 
 ;; helper function
 (defun go-fix-buffer ()
